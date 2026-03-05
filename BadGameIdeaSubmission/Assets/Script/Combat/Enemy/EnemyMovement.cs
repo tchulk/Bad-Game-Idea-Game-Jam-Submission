@@ -5,7 +5,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
 
-    [Header("Roaming Setting")]
+    //[Header("Roaming Setting")]
     [SerializeField] private float movementRedius = 50f;
     [SerializeField] private float roamingTimerMax = 2f;
     private float roamingTimer = 0f;
@@ -16,12 +16,10 @@ public class EnemyMovement : MonoBehaviour
     private bool isAttacking = false;
     private BoxCollider boxCollider;
 
-
-    [Header("Chasing Setting")]
-    [SerializeField] private GameObject player;
+    private GameObject player;
     private Transform playerTransform;
-
-    [Header("Attacking Setting")]
+    
+     //[Header("Attacking Setting")]
     private EnemyAttacking enemyAttacking;
     [SerializeField] private float attackRange = 2f;
     private float distanceToPlayer = Mathf.Infinity;
@@ -34,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         boxCollider = GetComponent<BoxCollider>();
         enemyAttacking = GetComponent<EnemyAttacking>();
+        player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.transform;
         roamingTimer = roamingTimerMax;
     }

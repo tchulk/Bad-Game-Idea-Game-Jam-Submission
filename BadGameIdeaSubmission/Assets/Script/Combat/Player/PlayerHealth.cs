@@ -24,11 +24,13 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
-        Debug.Log($"Player took {damageAmount} damage. Current health: {currentHealth}");
         if (currentHealth <= 0)
         {
             Die();
+            return;
         }
+       // Debug.Log($"Player took {damageAmount} damage. Current health: {currentHealth}");
+
     }
 
     private void Die()
