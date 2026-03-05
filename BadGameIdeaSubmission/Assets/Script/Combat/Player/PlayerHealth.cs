@@ -20,4 +20,20 @@ public class PlayerHealth : MonoBehaviour
     {
         
     }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        Debug.Log($"Player took {damageAmount} damage. Current health: {currentHealth}");
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player Died");
+        // Implement death logic here (e.g., respawn, game over screen, etc.)
+    }
 }

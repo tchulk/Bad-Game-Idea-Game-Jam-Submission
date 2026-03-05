@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
     private EnemyAttacking enemyAttacking;
     [SerializeField] private float attackRange = 2f;
     private float distanceToPlayer = Mathf.Infinity;
+    private Vector3 directionOfPlayer;
 
 
 
@@ -104,6 +105,7 @@ public class EnemyMovement : MonoBehaviour
     {
         navMeshAgent.SetDestination(playerTransform.position);
         distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        directionOfPlayer = (playerTransform.position - transform.position).normalized;
         if (distanceToPlayer <= attackRange)
         {
             navMeshAgent.isStopped = true;
@@ -114,6 +116,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void Attacking()
     {
-
+        enemyAttacking.Attacking(directionOfPlayer);
     }
 }

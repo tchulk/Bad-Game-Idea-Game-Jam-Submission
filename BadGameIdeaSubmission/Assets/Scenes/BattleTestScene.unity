@@ -483,6 +483,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4113938155025709501, guid: 601bde77706ace64989b7a1d2bb92f51, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 589094601184138607, guid: 601bde77706ace64989b7a1d2bb92f51, type: 3}
     m_RemovedGameObjects: []
@@ -502,9 +506,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1728020147}
   - component: {fileID: 1728020149}
+  - component: {fileID: 1728020151}
   - component: {fileID: 1728020148}
   - component: {fileID: 1728020150}
-  - component: {fileID: 1728020151}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -599,6 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eab6c2a505fdb54d881badf68542d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackTimerMax: 2
 --- !u!1 &1770071087
 GameObject:
   m_ObjectHideFlags: 0
