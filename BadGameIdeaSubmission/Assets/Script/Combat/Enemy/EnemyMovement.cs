@@ -14,10 +14,26 @@ public class EnemyMovement : MonoBehaviour
     private bool isRoaming = true;
     private bool isChasing = false;
     private bool isAttacking = false;
+    private BoxCollider boxCollider;
+
+
+    [Header("Chasing Setting")]
+    [SerializeField] private GameObject player;
+    private Transform playerTransform;
+
+    [Header("Attacking Setting")]
+    private EnemyAttacking enemyAttacking;
+    [SerializeField] private float attackRange = 2f;
+    private float distanceToPlayer = Mathf.Infinity;
+
+
 
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        boxCollider = GetComponent<BoxCollider>();
+        enemyAttacking = GetComponent<EnemyAttacking>();
+        playerTransform = player.transform;
         roamingTimer = roamingTimerMax;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,6 +56,14 @@ public class EnemyMovement : MonoBehaviour
         }
         if (isAttacking == true)
         {
+            distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+            if (distanceToPlayer >= attackRange)
+            {
+                navMeshAgent.isStopped = false;
+                navMeshAgent.SetDestination(playerTransform.position);
+                isChasing = true;
+                isAttacking = false;
+            }
             Attacking();
         }
 
@@ -67,9 +91,25 @@ public class EnemyMovement : MonoBehaviour
         roamingTimer = roamingTimerMax;
     }
 
+    private void OnTriggerEnter(Collider other )
+    {
+        if (other.gameObject == player)
+        {
+            isRoaming = false;
+            isChasing = true;
+        }
+    }
+
     private void Chasing()
     {
-
+        navMeshAgent.SetDestination(playerTransform.position);
+        distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        if (distanceToPlayer <= attackRange)
+        {
+            navMeshAgent.isStopped = true;
+            isChasing = false;
+            isAttacking = true;
+        }
     }
 
     private void Attacking()

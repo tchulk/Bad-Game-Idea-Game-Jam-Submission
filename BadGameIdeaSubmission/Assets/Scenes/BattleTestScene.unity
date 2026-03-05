@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 1728020149}
   - component: {fileID: 1728020148}
   - component: {fileID: 1728020150}
+  - component: {fileID: 1728020151}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -563,6 +564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRedius: 50
   roamingTimerMax: 2
+  player: {fileID: 2017774225}
+  attackRange: 2
 --- !u!65 &1728020150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -584,6 +587,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 15, y: 5, z: 15}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1728020151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728020146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eab6c2a505fdb54d881badf68542d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1770071087
 GameObject:
   m_ObjectHideFlags: 0
