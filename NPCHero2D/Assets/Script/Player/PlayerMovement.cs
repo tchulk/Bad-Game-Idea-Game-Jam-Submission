@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementInput;
     [SerializeField] private float moveSpeed = 5f;
 
+    public bool isFacingRight;
+    public bool isFacingLeft;
+
     private void Awake()
     {
         playerInput = new PlayerInputAction();
@@ -22,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -37,7 +39,21 @@ public class PlayerMovement : MonoBehaviour
         if (movementInput != null)
         {
             Vector2 movement = movementInput * moveSpeed * Time.fixedDeltaTime;
+
+            // Check horizontal movement
+            if (movement.x > 0)
+            {
+                Debug.Log("Moving Right");
+                isFacingRight = true;
+            }
+            else if (movement.x < 0)
+            {
+                Debug.Log("Moving Left");
+                isFacingLeft = true;
+            }
+
             rb.MovePosition(rb.position + movement);
+            
         }
      }
 

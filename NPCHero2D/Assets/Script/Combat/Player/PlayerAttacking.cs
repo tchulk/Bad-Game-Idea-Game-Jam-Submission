@@ -8,11 +8,14 @@ public class PlayerAttacking : MonoBehaviour
     private float attackTimer;
     [SerializeField] private float attackTimerMax = 1f;
     [SerializeField] private int damage = 10;
+    private PlayerMovement playerMovement;
+    private Vector3 directionofAttack;
 
     private void Awake()
     {
         playerInput = new PlayerInputAction();
         attackTimer = attackTimerMax;
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void OnEnable()
@@ -31,6 +34,15 @@ public class PlayerAttacking : MonoBehaviour
     {
         attackTimer -= Time.deltaTime;
 
+        if (playerMovement.isFacingRight)
+        {
+            directionofAttack = transform.right;
+        }
+        if (playerMovement.isFacingLeft)
+        {
+            directionofAttack = -transform.right;
+        }
+
     }
 
     private void OnDisable()
@@ -44,7 +56,7 @@ public class PlayerAttacking : MonoBehaviour
     {
         if (attackTimer <= 0)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 2f, layerMask);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofAttack, 2f, layerMask);
 
             if (hit)
             {
@@ -55,7 +67,7 @@ public class PlayerAttacking : MonoBehaviour
                     enemyHealth.TakeDamage(damage);
                 }
             }
-            Debug.DrawRay(transform.position, transform.right * 2f, Color.green, 100f);
+            Debug.DrawRay(transform.position, directionofAttack * 2f, Color.green, 100f);
             attackTimer = attackTimerMax;
         }
     }
