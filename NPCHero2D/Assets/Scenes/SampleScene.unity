@@ -458,7 +458,7 @@ MonoBehaviour:
   isFacingLeft: 0
   speed: 2
   trigger: {fileID: 1482666902}
-  AttackRange: 2
+  AttackRange: 1
 --- !u!114 &478561978
 MonoBehaviour:
   m_ObjectHideFlags: 0
