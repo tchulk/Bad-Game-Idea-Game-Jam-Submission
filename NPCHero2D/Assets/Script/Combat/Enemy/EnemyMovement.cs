@@ -6,8 +6,8 @@ public class EnemyMovement : MonoBehaviour
     private bool isChasing;
     private bool isAttacking;
 
-    private bool isFacingRight = true;
-    private bool isFacingLeft = true;
+    public bool isFacingRight;
+    public bool isFacingLeft;
     private Vector2 currentDirection;
     [SerializeField] private float speed = 5f;
     [SerializeField] private BoxCollider2D trigger;
@@ -16,10 +16,20 @@ public class EnemyMovement : MonoBehaviour
 
     private float randomTimer;
 
+    private bool DoNotCheckLeft = false;
+    private bool DoNotCheckRight = false;
+    private EnemyAttacking enemyAttacking;
+
+    [SerializeField] private float AttackRange = 2;
+
     private void Awake()
     {
         int Ran = Random.Range(1, 3);
         rd = GetComponent<Rigidbody2D>();
+        enemyAttacking = GetComponent<EnemyAttacking>();
+        // ensure only one facing flag is set
+        isFacingRight = false;
+        isFacingLeft = false;
         switch (Ran)
         {
             case 1:
@@ -31,12 +41,15 @@ public class EnemyMovement : MonoBehaviour
                 isFacingRight = true;
                 break;
             default:
+                currentDirection = new Vector2(1, 0);
+                isFacingRight = true;
                 break;
         }
         randomTimer = Random.Range(1, 6);
         isRoaming = true;
         player = GameObject.FindGameObjectWithTag("Player");
     }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,20 +60,36 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         randomTimer -= Time.deltaTime;
-        transform.Translate(currentDirection * speed * Time.deltaTime);
-        if (randomTimer <= 0 & isRoaming)
+
+        if (randomTimer <= 0 && isRoaming)
         {
             Roaming();
         }
+
         if (isChasing)
         {
             Chasing();
+        }
+
+        if (isAttacking)
+        {
+            Attacking();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // Move using Rigidbody2D to respect physics and avoid transform/physics conflicts
+        if (rd != null)
+        {
+            Vector2 movement = currentDirection * speed * Time.fixedDeltaTime;
+            rd.MovePosition(rd.position + movement);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             isRoaming = false;
             isChasing = true;
@@ -88,6 +117,36 @@ public class EnemyMovement : MonoBehaviour
 
     private void Chasing()
     {
-        currentDirection = -player.transform.position.normalized;
+        if (player == null) return;
+
+        Vector3 directionOfPlayer = player.transform.position - transform.position;
+
+        float DistanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        if (DistanceFromPlayer >= AttackRange)
+        {
+            isChasing = false;
+            isAttacking = true;
+        }
+
+        if (directionOfPlayer.x > 0f && DoNotCheckLeft != true)
+        {
+            currentDirection = new Vector2(1, 0);
+            isFacingRight = true;
+            isFacingLeft = false;
+            DoNotCheckRight = true;
+        }
+        if (directionOfPlayer.x < 0f && DoNotCheckRight != true)
+        {
+            currentDirection = new Vector2(-1, 0);
+            isFacingLeft = true;
+            isFacingRight = false;
+            DoNotCheckLeft = true;
+        }
+    }
+
+    private void Attacking()
+    {
+        enemyAttacking.Attacking();
     }
 }

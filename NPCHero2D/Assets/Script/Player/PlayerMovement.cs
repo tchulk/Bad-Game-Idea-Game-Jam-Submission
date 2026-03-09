@@ -43,13 +43,13 @@ public class PlayerMovement : MonoBehaviour
             // Check horizontal movement
             if (movement.x > 0)
             {
-                Debug.Log("Moving Right");
                 isFacingRight = true;
+                isFacingLeft = false;
             }
             else if (movement.x < 0)
             {
-                Debug.Log("Moving Left");
                 isFacingLeft = true;
+                isFacingRight = false;
             }
 
             rb.MovePosition(rb.position + movement);

@@ -37,11 +37,15 @@ public class PlayerAttacking : MonoBehaviour
         if (playerMovement.isFacingRight)
         {
             directionofAttack = transform.right;
+            return;
         }
         if (playerMovement.isFacingLeft)
         {
             directionofAttack = -transform.right;
+            return;
         }
+
+        
 
     }
 
