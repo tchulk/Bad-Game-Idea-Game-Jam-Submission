@@ -38,11 +38,9 @@ public class EnemyAttacking : MonoBehaviour
 
     public void Attacking()
     {
-        if (attackTimer <= 0)
-        {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofAttack, 2f, layerMask);
-
-            if (hit.collider != null)
+        Debug.DrawRay(transform.position, directionofAttack * 2f, Color.magenta, 1);
+        if (attackTimer <= 0 && hit.collider != null)
             {
                 Debug.Log("Hit " + hit.collider.name);
                 PlayerHealth playerHealth = hit.collider.GetComponent<PlayerHealth>();
@@ -50,7 +48,8 @@ public class EnemyAttacking : MonoBehaviour
                 {
                     playerHealth.TakeDamage(damage);
                 }
+                attackTimer = attackTimerMax;
             }
-        }
+            
     }
 }

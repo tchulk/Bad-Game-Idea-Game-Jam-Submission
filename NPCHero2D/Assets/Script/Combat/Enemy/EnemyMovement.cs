@@ -121,9 +121,10 @@ public class EnemyMovement : MonoBehaviour
 
         Vector3 directionOfPlayer = player.transform.position - transform.position;
 
-        float DistanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
+        float DistanceFromPlayer = Vector2.Distance(transform.position, player.transform.position);
+        
 
-        if (DistanceFromPlayer >= AttackRange)
+        if (DistanceFromPlayer <= AttackRange)
         {
             isChasing = false;
             isAttacking = true;
