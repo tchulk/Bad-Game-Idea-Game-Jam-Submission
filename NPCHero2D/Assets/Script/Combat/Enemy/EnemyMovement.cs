@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private BoxCollider2D trigger;
     private Rigidbody2D rd;
     private GameObject player;
+    private bool doOnce = true;
+    private float startY;
 
     private float randomTimer;
 
@@ -27,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
         int Ran = Random.Range(1, 3);
         rd = GetComponent<Rigidbody2D>();
         enemyAttacking = GetComponent<EnemyAttacking>();
+        startY = transform.position.y;
         // ensure only one facing flag is set
         isFacingRight = false;
         isFacingLeft = false;
@@ -61,8 +64,15 @@ public class EnemyMovement : MonoBehaviour
     {
         randomTimer -= Time.deltaTime;
 
+        if (startY > transform.position.y && doOnce == true)
+        {
+           Roaming();
+            transform.position = new Vector3(transform.position.x, startY, transform.position.z);
+            doOnce = false;
+        }
         if (randomTimer <= 0 && isRoaming)
         {
+            doOnce = true;
             Roaming();
         }
 
@@ -93,7 +103,19 @@ public class EnemyMovement : MonoBehaviour
         {
             isRoaming = false;
             isChasing = true;
+            return;
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isRoaming = true;
+            isChasing = false;
+            return;
+        }
+
     }
     private void Roaming()
     {
