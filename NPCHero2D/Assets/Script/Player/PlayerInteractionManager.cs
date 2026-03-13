@@ -53,8 +53,7 @@ public class PlayerInteractionManager : MonoBehaviour
         Debug.DrawRay(transform.position, directionofRay * 2f, Color.blue, 1);
         if (hit.collider != null)
         {
-            Debug.Log("Interacted with " + hit.collider.name);
-            // Implement interaction logic here (e.g., open a door, pick up an item, etc.)
+
         }
     }
 }
