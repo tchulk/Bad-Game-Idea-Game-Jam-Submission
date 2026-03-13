@@ -53,7 +53,10 @@ public class PlayerInteractionManager : MonoBehaviour
         Debug.DrawRay(transform.position, directionofRay * 2f, Color.blue, 1);
         if (hit.collider != null)
         {
-
+            if (hit.collider.GetComponent<ObjectInteractionManager>() != null)
+            {
+                hit.collider.GetComponent<ObjectInteractionManager>().Interact();
+            }
         }
     }
 }
