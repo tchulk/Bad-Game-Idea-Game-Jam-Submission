@@ -16,7 +16,7 @@ public class CoffeeMachine : ObjectInteractionManager
 
     public override void Interact()
     {
-        
-        Debug.Log("You interact with the Coffee Machine.");
+     Debug.Log("You interact with the Coffee Machine.");
+     base.Interact(); 
     }
 }

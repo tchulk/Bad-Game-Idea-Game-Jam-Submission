@@ -42,12 +42,10 @@ public class PlayerInteractionManager : MonoBehaviour
         if (playerMovement.isFacingRight)
         {
             directionofRay = transform.right;
-            //return;
         }
         if (playerMovement.isFacingLeft)
         {
             directionofRay = -transform.right;
-            //return;
         }
         RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofRay, 2f, layerMask);
         Debug.DrawRay(transform.position, directionofRay * 2f, Color.blue, 1);
