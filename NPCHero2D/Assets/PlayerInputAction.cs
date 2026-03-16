@@ -171,6 +171,33 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TimingButtion1"",
+                    ""type"": ""Button"",
+                    ""id"": ""f125a445-8a5b-4a0b-ab3e-cc3e119b4f4a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TimingButtion2"",
+                    ""type"": ""Button"",
+                    ""id"": ""3800a21d-2bda-441b-8f71-c68b22645764"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TimingButtion3"",
+                    ""type"": ""Button"",
+                    ""id"": ""d4ec62a1-082a-4de3-b491-0af345452f65"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -512,6 +539,39 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0bcd442-669c-4414-a66f-c32ed377ca29"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""TimingButtion1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""509803ad-7b03-4c4b-98d1-698ce1aa9a08"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TimingButtion2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d55249d4-2aaa-4cbf-a97f-06e969145f8d"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TimingButtion3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1582,6 +1642,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Player_Previous = m_Player.FindAction("Previous", throwIfNotFound: true);
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_TimingButtion1 = m_Player.FindAction("TimingButtion1", throwIfNotFound: true);
+        m_Player_TimingButtion2 = m_Player.FindAction("TimingButtion2", throwIfNotFound: true);
+        m_Player_TimingButtion3 = m_Player.FindAction("TimingButtion3", throwIfNotFound: true);
         // Player1
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_Move = m_Player1.FindAction("Move", throwIfNotFound: true);
@@ -1696,6 +1759,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Previous;
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_TimingButtion1;
+    private readonly InputAction m_Player_TimingButtion2;
+    private readonly InputAction m_Player_TimingButtion3;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1743,6 +1809,18 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Sprint".
         /// </summary>
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TimingButtion1".
+        /// </summary>
+        public InputAction @TimingButtion1 => m_Wrapper.m_Player_TimingButtion1;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TimingButtion2".
+        /// </summary>
+        public InputAction @TimingButtion2 => m_Wrapper.m_Player_TimingButtion2;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TimingButtion3".
+        /// </summary>
+        public InputAction @TimingButtion3 => m_Wrapper.m_Player_TimingButtion3;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1796,6 +1874,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @TimingButtion1.started += instance.OnTimingButtion1;
+            @TimingButtion1.performed += instance.OnTimingButtion1;
+            @TimingButtion1.canceled += instance.OnTimingButtion1;
+            @TimingButtion2.started += instance.OnTimingButtion2;
+            @TimingButtion2.performed += instance.OnTimingButtion2;
+            @TimingButtion2.canceled += instance.OnTimingButtion2;
+            @TimingButtion3.started += instance.OnTimingButtion3;
+            @TimingButtion3.performed += instance.OnTimingButtion3;
+            @TimingButtion3.canceled += instance.OnTimingButtion3;
         }
 
         /// <summary>
@@ -1834,6 +1921,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @TimingButtion1.started -= instance.OnTimingButtion1;
+            @TimingButtion1.performed -= instance.OnTimingButtion1;
+            @TimingButtion1.canceled -= instance.OnTimingButtion1;
+            @TimingButtion2.started -= instance.OnTimingButtion2;
+            @TimingButtion2.performed -= instance.OnTimingButtion2;
+            @TimingButtion2.canceled -= instance.OnTimingButtion2;
+            @TimingButtion3.started -= instance.OnTimingButtion3;
+            @TimingButtion3.performed -= instance.OnTimingButtion3;
+            @TimingButtion3.canceled -= instance.OnTimingButtion3;
         }
 
         /// <summary>
@@ -2381,6 +2477,27 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSprint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimingButtion1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimingButtion1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimingButtion2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimingButtion2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimingButtion3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimingButtion3(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player1" which allows adding and removing callbacks.

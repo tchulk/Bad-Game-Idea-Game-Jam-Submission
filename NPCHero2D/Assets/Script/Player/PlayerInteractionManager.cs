@@ -48,7 +48,7 @@ public class PlayerInteractionManager : MonoBehaviour
             directionofRay = -transform.right;
         }
         RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofRay, 2f, layerMask);
-        Debug.DrawRay(transform.position, directionofRay * 2f, Color.blue, 1);
+        Debug.DrawRay(transform.position, directionofRay * 2f, Color.blue, 10);
         if (hit.collider != null)
         {
             if (hit.collider.GetComponent<ObjectInteractionManager>() != null)
