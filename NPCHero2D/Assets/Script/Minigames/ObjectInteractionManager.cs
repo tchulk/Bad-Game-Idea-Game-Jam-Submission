@@ -2,7 +2,16 @@ using UnityEngine;
 
 public class ObjectInteractionManager : MonoBehaviour
 {
-    [SerializeField] private GameObject Transition;
+     private GameObject Transition;
+
+    private void Awake()
+    {
+        Transition = GameObject.FindGameObjectWithTag("TransitionObject");
+        if (Transition == null)
+        {
+            Debug.LogError("Transition GameObject is not assigned in the inspector.");
+        }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

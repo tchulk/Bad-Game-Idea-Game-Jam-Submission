@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CoffeeMachine : ObjectInteractionManager
 {
+    private bool IsMinigameDone = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,7 +17,9 @@ public class CoffeeMachine : ObjectInteractionManager
 
     public override void Interact()
     {
-     Debug.Log("You interact with the Coffee Machine.");
-     base.Interact(); 
+        if (IsMinigameDone) return;
+        Debug.Log("You interact with the Coffee Machine.");
+        base.Interact(); 
+        IsMinigameDone = true;
     }
 }

@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 1506438303}
   m_Layer: 0
   m_Name: Transition
-  m_TagString: Untagged
+  m_TagString: TransitionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -631,7 +631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3647f35c485489a43b87ff51f683314a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transition: {fileID: 1506438302}
 --- !u!61 &1540387219
 BoxCollider2D:
   m_ObjectHideFlags: 0

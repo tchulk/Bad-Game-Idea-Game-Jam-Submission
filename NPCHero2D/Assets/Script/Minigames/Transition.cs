@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Transition : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Transition : MonoBehaviour
             // Load the next scene or perform the transition
             Debug.Log("All minigames completed! Transitioning to the next scene...");
             // Example: SceneManager.LoadScene("NextSceneName");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load the next scene in the build index
         }
     }
 }
