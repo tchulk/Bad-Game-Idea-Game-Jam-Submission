@@ -17,8 +17,7 @@ public class Transition : MonoBehaviour
         if (MinigameDone >= AllMinigametoDo)
         {
             // Load the next scene or perform the transition
-            Debug.Log("All minigames completed! Transitioning to the next scene...");
-            // Example: SceneManager.LoadScene("NextSceneName");
+            Debug.Log("All minigames completed! Transitioning to the next thing...");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load the next scene in the build index
         }
     }

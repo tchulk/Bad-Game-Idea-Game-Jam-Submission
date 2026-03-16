@@ -66,8 +66,8 @@ public class PlayerAttacking : MonoBehaviour
             {
                 if (hit.collider.tag == "Enemy")
                 {
-                    Debug.Log("Hit");
-                    EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+                    Debug.Log("Hit Goblin");
+                    EnemyHealth enemyHealth = hit.collider.transform.parent.GetComponent<EnemyHealth>();
                     enemyHealth.TakeDamage(damage);
                 }
             }
