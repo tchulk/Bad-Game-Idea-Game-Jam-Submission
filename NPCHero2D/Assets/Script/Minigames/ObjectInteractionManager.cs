@@ -4,7 +4,7 @@ public class ObjectInteractionManager : MonoBehaviour
 {
      private GameObject Transition;
 
-    private void Awake()
+    public virtual void Awake()
     {
         Transition = GameObject.FindGameObjectWithTag("TransitionObject");
         if (Transition == null)

@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class CoffeeMachine : ObjectInteractionManager
 {
-    private bool isMinigameDone = false;
     private bool minigameStarted = false;
     private bool minigameFinished = false;
     private bool minigameFailed = false;
     private float buttonTimer;
     [SerializeField] private float buttonTimerMax = 2;
+    private GameObject player;
+    private PlayerInteractionManager playerInteractionManager;
     private PlayerInputAction playerInput;
 
     private bool hasPLayerDoneButton1;
@@ -15,16 +16,19 @@ public class CoffeeMachine : ObjectInteractionManager
     private bool hasPlayerDoneButton3;
 
 
-    private void Awake()
+    public override void Awake()
     {
         playerInput = new PlayerInputAction();
         buttonTimer = buttonTimerMax;
+        base.Awake();
     }
 
     private void OnEnable()
     {
         playerInput.Player.Enable();
-        playerInput.Player.Interact.performed += ctx => Interact();
+        playerInput.Player.TimingButtion1.performed += ctx => PressingButton1();
+        playerInput.Player.TimingButtion2.performed += ctx => PressingButton2();
+        playerInput.Player.TimingButtion3.performed += ctx => PressingButton3();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,6 +59,14 @@ public class CoffeeMachine : ObjectInteractionManager
         }
     }
 
+    private void OnDisable()
+    {
+        playerInput.Player.TimingButtion1.performed -= ctx => PressingButton1();
+        playerInput.Player.TimingButtion2.performed -= ctx => PressingButton2();
+        playerInput.Player.TimingButtion3.performed -= ctx => PressingButton3();
+        playerInput.Player.Disable();
+    }
+
     public void PressingButton1()
     {
         hasPLayerDoneButton1 = true;
@@ -62,14 +74,16 @@ public class CoffeeMachine : ObjectInteractionManager
 }
     public void PressingButton2()
     {
-        if (hasPLayerDoneButton1) return;
+        if (minigameStarted != true) return;
+        if (hasPLayerDoneButton1 != true) return;
         hasPlayerDoneButton2 = true;
         buttonTimer = buttonTimerMax;
     }
     public void PressingButton3()
     {
-        if (hasPLayerDoneButton1) return;
-        if (hasPlayerDoneButton2) return;
+        if (minigameStarted != true) return;
+        if (hasPLayerDoneButton1 != true) return;
+        if (hasPlayerDoneButton2 != true) return;
         hasPlayerDoneButton3 = true;
         buttonTimer = buttonTimerMax;
         minigameStarted = false;
