@@ -5,6 +5,7 @@ public class Transition : MonoBehaviour
 {
     public int MinigameDone = 0;
     [SerializeField] private int AllMinigametoDo = 1;
+    [SerializeField] private GameObject sword;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,8 +18,9 @@ public class Transition : MonoBehaviour
         if (MinigameDone >= AllMinigametoDo)
         {
             // Load the next scene or perform the transition
-            Debug.Log("All minigames completed! Transitioning to the next thing...");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load the next scene in the build index
+            Debug.Log("All minigames completed! Spawning Sword...");
+            sword.SetActive(true);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load the next scene in the build index
         }
     }
 }
