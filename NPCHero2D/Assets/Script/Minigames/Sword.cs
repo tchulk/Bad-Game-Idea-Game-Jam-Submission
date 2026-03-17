@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Sword : ObjectInteractionManager
 {
 
-    private void Awake()
+    public override void Awake()
     {
         gameObject.SetActive(false);
     }
