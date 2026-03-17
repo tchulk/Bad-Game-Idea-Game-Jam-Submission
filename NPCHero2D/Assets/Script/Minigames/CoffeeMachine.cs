@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CoffeeMachine : ObjectInteractionManager
 {
@@ -51,21 +52,21 @@ public class CoffeeMachine : ObjectInteractionManager
         }
         if (minigameStarted)
         {
-            //buttonTimer -= Time.deltaTime;
+            buttonTimer -= Time.deltaTime;
             timerText.gameObject.SetActive(true);
             timerText.text = buttonTimer.ToString("F2");
             buttonToClick.gameObject.SetActive(true);
                 if (hasPLayerDoneButton1 != true)
                 {
-                    buttonToClick.text = "Press " + playerInput.Player.TimingButtion1.bindings.ToString();
+                    buttonToClick.text = "Press " + playerInput.Player.TimingButtion1.GetBindingDisplayString(0);
                 }
                 else if (hasPlayerDoneButton2 != true)
                 {
-                    buttonToClick.text = "Press Button 2";
-                }
+                    buttonToClick.text = "Press " + playerInput.Player.TimingButtion2.GetBindingDisplayString(0);
+            }
                 else if (hasPlayerDoneButton3 != true)
                 {
-                    buttonToClick.text = "Press Button 3";
+                    buttonToClick.text = "Press " + playerInput.Player.TimingButtion3.GetBindingDisplayString(0);
             }
         }
         if (minigameFailed)
@@ -76,6 +77,7 @@ public class CoffeeMachine : ObjectInteractionManager
         {
             Debug.Log("Minigame finished");
             timerText.gameObject.SetActive(false);
+            buttonToClick.gameObject.SetActive(false);
             base.Interact();
         }
     }
