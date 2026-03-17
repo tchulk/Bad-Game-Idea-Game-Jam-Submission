@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class CoffeeMachine : ObjectInteractionManager
 {
@@ -14,12 +16,16 @@ public class CoffeeMachine : ObjectInteractionManager
     private bool hasPLayerDoneButton1;
     private bool hasPlayerDoneButton2;
     private bool hasPlayerDoneButton3;
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI buttonToClick;
 
 
     public override void Awake()
     {
         playerInput = new PlayerInputAction();
         buttonTimer = buttonTimerMax;
+        timerText.gameObject.SetActive(false);
+        buttonToClick.gameObject.SetActive(false);
         base.Awake();
     }
 
@@ -45,8 +51,22 @@ public class CoffeeMachine : ObjectInteractionManager
         }
         if (minigameStarted)
         {
-            buttonTimer -= Time.deltaTime;
-
+            //buttonTimer -= Time.deltaTime;
+            timerText.gameObject.SetActive(true);
+            timerText.text = buttonTimer.ToString("F2");
+            buttonToClick.gameObject.SetActive(true);
+                if (hasPLayerDoneButton1 != true)
+                {
+                    buttonToClick.text = "Press " + playerInput.Player.TimingButtion1.bindings.ToString();
+                }
+                else if (hasPlayerDoneButton2 != true)
+                {
+                    buttonToClick.text = "Press Button 2";
+                }
+                else if (hasPlayerDoneButton3 != true)
+                {
+                    buttonToClick.text = "Press Button 3";
+            }
         }
         if (minigameFailed)
         {
@@ -55,6 +75,7 @@ public class CoffeeMachine : ObjectInteractionManager
         if (minigameFinished)
         {
             Debug.Log("Minigame finished");
+            timerText.gameObject.SetActive(false);
             base.Interact();
         }
     }
