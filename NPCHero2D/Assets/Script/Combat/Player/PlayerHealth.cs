@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
+    [SerializeField] private AudioSource damageSound;
     public int currentHealth;
 
     private void Awake()
@@ -24,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        damageSound.Play();
         if (currentHealth <= 0)
         {
             Die();
