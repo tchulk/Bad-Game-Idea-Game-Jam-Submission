@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1299015588536069851}
   m_Layer: 3
   m_Name: EnemyTrigger
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2317447875212521340}
   m_Layer: 3
   m_Name: EnemyModel
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,9 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52696894646b1a947ac698fd9ffb61f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFacingRight: 0
+  isFacingRight: 1
   isFacingLeft: 0
-  speed: 2
+  speed: 4
   trigger: {fileID: 1299015588536069851}
   AttackRange: 1
 --- !u!114 &5536669631117229696
@@ -301,7 +301,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
