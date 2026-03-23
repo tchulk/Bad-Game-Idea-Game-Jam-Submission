@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 376439805}
   - component: {fileID: 376439804}
   m_Layer: 0
-  m_Name: GroundVideo
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
