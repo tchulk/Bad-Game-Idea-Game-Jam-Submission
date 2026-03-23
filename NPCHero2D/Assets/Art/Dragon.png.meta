@@ -130,10 +130,10 @@ TextureImporter:
       name: Dragon_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 334
-        width: 578
-        height: 381
+        x: 0
+        y: 360
+        width: 640
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: Dragon_1
       rect:
         serializedVersion: 2
-        x: 670
-        y: 394
-        width: 578
-        height: 321
+        x: 640
+        y: 360
+        width: 640
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: Dragon_2
       rect:
         serializedVersion: 2
-        x: 1310
-        y: 388
-        width: 578
-        height: 327
+        x: 1280
+        y: 360
+        width: 640
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: Dragon_3
       rect:
         serializedVersion: 2
-        x: 1672
-        y: 662
-        width: 12
-        height: 6
+        x: 1920
+        y: 360
+        width: 640
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: Dragon_4
       rect:
         serializedVersion: 2
-        x: 1950
-        y: 385
-        width: 578
-        height: 330
+        x: 2560
+        y: 360
+        width: 640
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,10 +240,10 @@ TextureImporter:
       name: Dragon_5
       rect:
         serializedVersion: 2
-        x: 2590
-        y: 372
-        width: 543
-        height: 343
+        x: 3200
+        y: 360
+        width: 640
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,10 +262,10 @@ TextureImporter:
       name: Dragon_6
       rect:
         serializedVersion: 2
-        x: 3095
-        y: 385
-        width: 713
-        height: 330
+        x: 3840
+        y: 360
+        width: 640
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,10 +284,10 @@ TextureImporter:
       name: Dragon_7
       rect:
         serializedVersion: 2
-        x: 3870
-        y: 387
-        width: 578
-        height: 328
+        x: 0
+        y: 0
+        width: 640
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,10 +306,10 @@ TextureImporter:
       name: Dragon_8
       rect:
         serializedVersion: 2
-        x: 30
-        y: 33
-        width: 578
-        height: 322
+        x: 640
+        y: 0
+        width: 640
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +328,10 @@ TextureImporter:
       name: Dragon_9
       rect:
         serializedVersion: 2
-        x: 639
+        x: 1280
         y: 0
-        width: 3841
-        height: 361
+        width: 640
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,11 +346,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Dragon_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b1cca1dd047b364e9f0025d663e8df7
+      internalID: -1890714115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon_11
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b59e4aea2503d7240aa0406f6b2bc9e0
+      internalID: 767644675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon_12
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de70a8c0d6ec65418c2bbde9ae4c466
+      internalID: -105389639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon_13
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70daa73dd22c19e4593ee56d8bac86bf
+      internalID: 1419221975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 17e87323977b13b439bfe1e8ea0109d4
     internalID: 0
     vertices: []
     indices: 
@@ -359,7 +447,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dragon_0: 1372335161102834277
+      Dragon_1: 7236858470366593164
+      Dragon_10: -1890714115
+      Dragon_11: 767644675
+      Dragon_12: -105389639
+      Dragon_13: 1419221975
+      Dragon_2: 5967068118830826598
+      Dragon_3: -6818290705752391711
+      Dragon_4: -5048749159071775346
+      Dragon_5: 8500815652691911736
+      Dragon_6: -1560842793315140573
+      Dragon_7: -1634599686845655008
+      Dragon_8: -8168794291777539684
+      Dragon_9: 8620194370997545834
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
