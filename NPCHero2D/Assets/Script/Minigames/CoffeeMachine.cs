@@ -20,6 +20,8 @@ public class CoffeeMachine : ObjectInteractionManager
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI buttonToClick;
 
+    private bool DoOnce = false;
+
 
     public override void Awake()
     {
@@ -73,11 +75,12 @@ public class CoffeeMachine : ObjectInteractionManager
         {
             Debug.Log("Minigame Failed");
         }
-        if (minigameFinished)
+        if (minigameFinished == true && DoOnce == false)
         {
             Debug.Log("Minigame finished");
             timerText.gameObject.SetActive(false);
             buttonToClick.gameObject.SetActive(false);
+            DoOnce = true;
             base.Interact();
         }
     }

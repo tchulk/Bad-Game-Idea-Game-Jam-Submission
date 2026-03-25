@@ -8,18 +8,11 @@ public class Bookcase : ObjectInteractionManager
 
     [SerializeField] private GameObject UI;
 
-    [SerializeField] private Image book1;
-    [SerializeField] private Image book2;
-    [SerializeField] private Image book3;
-
+    public int NumberOfBooks = 0;
+    private bool DoOnce = false;
     public override void Awake()
     {
        UI.SetActive(false);
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -31,14 +24,23 @@ public class Bookcase : ObjectInteractionManager
             UI.SetActive(true);
         }
 
-        if (minigameFinished)
+        if ( NumberOfBooks == 3)
         {
+            minigameFinished = true;
+        }
+
+        if (minigameFinished == true && DoOnce == false)
+        {
+            minigameStarted = false;
+            DoOnce = true;
+            UI.SetActive(false);
             base.Interact();
         }
     }
 
     public override void Interact()
     {
+        if (minigameFinished) return;
         minigameStarted = true;
     }
 }

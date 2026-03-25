@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ObjectInteractionManager : MonoBehaviour
 {
-     private GameObject Transition;
+    [SerializeField] private GameObject Transition;
+
 
     public virtual void Awake()
     {

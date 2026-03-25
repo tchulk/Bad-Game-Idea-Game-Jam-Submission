@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 109632455}
   - component: {fileID: 109632454}
   - component: {fileID: 109632456}
+  - component: {fileID: 109632457}
   m_Layer: 5
   m_Name: A Folder
   m_TagString: Untagged
@@ -208,6 +209,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aeeaf110f5b41f4b81ab7ef08966182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &109632457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109632452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a339c77f41a34de43a7222ec95aacedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhereBookShouldBe: {fileID: 1889550215}
+  Bookcase: {fileID: 1552561582}
 --- !u!1 &258531621
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +371,7 @@ GameObject:
   - component: {fileID: 286026153}
   - component: {fileID: 286026152}
   - component: {fileID: 286026154}
+  - component: {fileID: 286026155}
   m_Layer: 5
   m_Name: B Folder
   m_TagString: Untagged
@@ -433,6 +449,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aeeaf110f5b41f4b81ab7ef08966182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &286026155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286026150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a339c77f41a34de43a7222ec95aacedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhereBookShouldBe: {fileID: 304079619}
+  Bookcase: {fileID: 1552561582}
 --- !u!1 &304079618
 GameObject:
   m_ObjectHideFlags: 0
@@ -4678,6 +4708,7 @@ GameObject:
   - component: {fileID: 935737426}
   - component: {fileID: 935737425}
   - component: {fileID: 935737427}
+  - component: {fileID: 935737428}
   m_Layer: 5
   m_Name: C Folder
   m_TagString: Untagged
@@ -4755,6 +4786,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aeeaf110f5b41f4b81ab7ef08966182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &935737428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935737423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a339c77f41a34de43a7222ec95aacedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhereBookShouldBe: {fileID: 995442456}
+  Bookcase: {fileID: 1552561582}
 --- !u!1 &995431115
 GameObject:
   m_ObjectHideFlags: 0
@@ -4801,6 +4846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a01696338e0c52489dd980f32d46613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Transition: {fileID: 0}
 --- !u!61 &995431119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5856,7 +5902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinigameDone: 0
-  AllMinigametoDo: 1
+  AllMinigameToDo: 2
   sword: {fileID: 995431115}
   SwordText: {fileID: 1287786958}
 --- !u!4 &1506438304
@@ -6198,6 +6244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3647f35c485489a43b87ff51f683314a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Transition: {fileID: 1506438302}
   buttonTimerMax: 2
   timerText: {fileID: 258531623}
   buttonToClick: {fileID: 2014206076}
@@ -6348,10 +6395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f315a4163a89244f8b67178159f3db0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Transition: {fileID: 1506438302}
   UI: {fileID: 1503434328}
-  book1: {fileID: 0}
-  book2: {fileID: 0}
-  book3: {fileID: 0}
+  NumberOfBooks: 0
 --- !u!61 &1552561586
 BoxCollider2D:
   m_ObjectHideFlags: 0
