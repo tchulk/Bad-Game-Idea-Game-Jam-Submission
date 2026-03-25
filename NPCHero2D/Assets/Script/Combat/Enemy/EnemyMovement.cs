@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
     private EnemyAttacking enemyAttacking;
 
     [SerializeField] private float AttackRange = 2;
+    [SerializeField] private Animator animator;
 
     private void Awake()
     {
@@ -34,20 +35,27 @@ public class EnemyMovement : MonoBehaviour
         {
             case 1:
                 currentDirection = new Vector2(-1, 0);
+                gameObject.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, 0));
+                animator.SetBool("IsMoving", true);
                 isFacingLeft = true;
                 break;
             case 2:
                 currentDirection = new Vector2(1, 0);
+                gameObject.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 180, 0));
+                animator.SetBool("IsMoving", true);
                 isFacingRight = true;
                 break;
             default:
                 currentDirection = new Vector2(1, 0);
+                gameObject.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 180, 0));
+                animator.SetBool("IsMoving", true);
                 isFacingRight = true;
                 break;
         }
         randomTimer = Random.Range(1, 6);
         isRoaming = true;
         player = GameObject.FindGameObjectWithTag("Player");
+        animator.gameObject.GetComponent<Animator>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -100,16 +108,21 @@ public class EnemyMovement : MonoBehaviour
         if (isFacingRight)
         {
             currentDirection = new Vector2(-1, 0);
+            animator.SetBool("IsMoving", true);
+            Debug.Log(animator.GetBool("IsMoving"));
             isFacingLeft = true;
             isFacingRight = false;
+            gameObject.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, 0));
             randomTimer = Random.Range(1, 6);
             return;
         }
         if (isFacingLeft)
         {
             currentDirection = new Vector2(1, 0);
+            animator.SetBool("IsMoving", true);
             isFacingRight = true;
             isFacingLeft = false;
+            gameObject.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 180, 0));
             randomTimer = Random.Range(1, 6);
             return;
         }
@@ -135,6 +148,7 @@ public class EnemyMovement : MonoBehaviour
             currentDirection = new Vector2(1, 0);
             isFacingRight = true;
             isFacingLeft = false;
+            gameObject.transform.Rotate(new Vector3(0, 180, 0));
             DoNotCheckRight = true;
         }
         if (directionOfPlayer.x < 0f && DoNotCheckRight != true)
@@ -142,6 +156,7 @@ public class EnemyMovement : MonoBehaviour
             currentDirection = new Vector2(-1, 0);
             isFacingLeft = true;
             isFacingRight = false;
+            gameObject.transform.Rotate(new Vector3(0, 0, 0));
             DoNotCheckLeft = true;
         }
     }
