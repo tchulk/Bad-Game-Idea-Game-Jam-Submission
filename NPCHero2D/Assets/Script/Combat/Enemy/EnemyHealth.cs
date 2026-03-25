@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private int maxHealth = 50;
+    [SerializeField] private int maxHealth = 50;
     private int currentHealth;
+    [SerializeField] private AudioSource damageSound;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        damageSound.Play();
         if (currentHealth <= 0)
         {
             Die();

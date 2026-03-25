@@ -7,6 +7,7 @@ public class EnemyAttacking : MonoBehaviour
     [SerializeField] private int damage = 10;
     private Vector3 directionofAttack;
     private EnemyMovement enemyMovement;
+    [SerializeField] private AudioSource HittingSound;
 
     [SerializeField] private LayerMask layerMask;
     private void Awake()
@@ -46,7 +47,8 @@ public class EnemyAttacking : MonoBehaviour
                 PlayerHealth playerHealth = hit.collider.GetComponent<PlayerHealth>();
                 if (playerHealth != null)
                 {
-                    playerHealth.TakeDamage(damage);
+                HittingSound.Play();
+                playerHealth.TakeDamage(damage);
                 }
                 attackTimer = attackTimerMax;
             }

@@ -8,6 +8,7 @@ public class PlayerAttacking : MonoBehaviour
     private float attackTimer;
     [SerializeField] private float attackTimerMax = 1f;
     [SerializeField] private int damage = 10;
+    [SerializeField] private AudioSource HittingSound;
     private PlayerMovement playerMovement;
     private Vector3 directionofAttack;
 
@@ -67,6 +68,7 @@ public class PlayerAttacking : MonoBehaviour
                 if (hit.collider.tag == "Enemy")
                 {
                     Debug.Log("Hit Goblin");
+                    HittingSound.Play();
                     EnemyHealth enemyHealth = hit.collider.transform.parent.GetComponent<EnemyHealth>();
                     enemyHealth.TakeDamage(damage);
                 }
