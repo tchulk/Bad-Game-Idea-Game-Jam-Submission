@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bookcase : ObjectInteractionManager
 {
@@ -6,6 +7,10 @@ public class Bookcase : ObjectInteractionManager
     private bool minigameFinished = false;
 
     [SerializeField] private GameObject UI;
+
+    [SerializeField] private Image book1;
+    [SerializeField] private Image book2;
+    [SerializeField] private Image book3;
 
     public override void Awake()
     {
