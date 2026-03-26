@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Survivorstandby4left_0: -2358711691110373469
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
