@@ -108,7 +108,6 @@ public class EnemyMovement : MonoBehaviour
         {
             currentDirection = new Vector2(-1, 0);
             animator.SetBool("IsMoving", true);
-            Debug.Log(animator.GetBool("IsMoving"));
             isFacingLeft = true;
             isFacingRight = false;
             gameObject.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, 0));

@@ -6,14 +6,15 @@ public class EnemyHealth : MonoBehaviour
     private int currentHealth;
     [SerializeField] private AudioSource damageSound;
 
-    private void Awake()
+    private EnemyMovement enemyMovement;
+    private void OnEnable()
     {
         currentHealth = maxHealth;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
     // Update is called once per frame
@@ -25,6 +26,14 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
         damageSound.Play();
+        if (enemyMovement.isFacingRight)
+        {
+            gameObject.transform.SetPositionAndRotation(new Vector3(transform.position.x - 2f, transform.position.y, transform.position.z), transform.rotation);
+        }
+        else if (enemyMovement.isFacingLeft)
+        {
+            gameObject.transform.SetPositionAndRotation(new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z), transform.rotation);
+        }
         if (currentHealth <= 0)
         {
             Die();
