@@ -55,7 +55,6 @@ public class EnemyMovement : MonoBehaviour
         randomTimer = Random.Range(1, 6);
         isRoaming = true;
         player = GameObject.FindGameObjectWithTag("Player");
-        animator.gameObject.GetComponent<Animator>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

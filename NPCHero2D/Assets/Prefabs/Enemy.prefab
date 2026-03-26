@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4152239044682503956}
   - component: {fileID: 2317447875212521340}
+  - component: {fileID: 6676049410052289461}
   m_Layer: 3
   m_Name: EnemyModel
   m_TagString: Enemy
@@ -165,6 +166,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6676049410052289461
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553977329115759884}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 50c805d4753c2fc4b983913361df29fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8659505463878097381
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +204,6 @@ GameObject:
   - component: {fileID: 2474326048346830769}
   - component: {fileID: 2825216006944785917}
   - component: {fileID: 6728256529993117756}
-  - component: {fileID: 1796566324295016410}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -223,7 +245,7 @@ MonoBehaviour:
   speed: 4
   trigger: {fileID: 1299015588536069851}
   AttackRange: 1
-  animator: {fileID: 1796566324295016410}
+  animator: {fileID: 6676049410052289461}
 --- !u!114 &5536669631117229696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,25 +536,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &1796566324295016410
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8659505463878097381}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 50c805d4753c2fc4b983913361df29fc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
