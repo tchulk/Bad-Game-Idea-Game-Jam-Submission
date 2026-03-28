@@ -260,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   damageSound: {fileID: 2825216006944785917}
+  animator: {fileID: 6676049410052289461}
 --- !u!114 &5714995561219095255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +279,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 6676049410052289461}
 --- !u!70 &167500911614812293
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

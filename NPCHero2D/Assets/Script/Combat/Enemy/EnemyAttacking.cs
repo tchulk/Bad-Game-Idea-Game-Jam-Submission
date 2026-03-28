@@ -10,6 +10,7 @@ public class EnemyAttacking : MonoBehaviour
     [SerializeField] private AudioSource HittingSound;
 
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private Animator animator;
     private void Awake()
     {
         attackTimer = attackTimerMax;
@@ -43,7 +44,9 @@ public class EnemyAttacking : MonoBehaviour
         Debug.DrawRay(transform.position, directionofAttack * 2f, Color.magenta, 1);
         if (attackTimer <= 0 && hit.collider != null)
             {
-                Debug.Log("Hit " + hit.collider.name);
+            animator.SetBool("IsMoving", false);
+            animator.SetBool("IsAttack", true);
+              Debug.Log("Hit " + hit.collider.name);
                 PlayerHealth playerHealth = hit.collider.GetComponent<PlayerHealth>();
                 if (playerHealth != null)
                 {
@@ -51,6 +54,7 @@ public class EnemyAttacking : MonoBehaviour
                 playerHealth.TakeDamage(damage);
                 }
                 attackTimer = attackTimerMax;
+               animator.SetBool("IsAttack", false);
             }
             
     }

@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private AudioSource damageSound;
 
     private EnemyMovement enemyMovement;
+    [SerializeField] private Animator animator;
     private void OnEnable()
     {
         currentHealth = maxHealth;
