@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
 
 
     private float AttackTimer;
-    private float AttackCooldown = 2f;
+    private float AttackCooldown = 4f;
 
     [SerializeField] private SpriteRenderer Model;
 
@@ -171,9 +171,17 @@ public class EnemyMovement : MonoBehaviour
         if (AttackTimer <= 0)
         {
             AttackTimer = AttackCooldown;
-            animator.SetTrigger("Attack");
-            enemyAttacking.Attacking();
-        }
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+             if (stateInfo.IsName("GoblinKill") && (stateInfo.IsName("GoblinDamage")))
+             {
+                return;
+             }
+             else
+             {
+                 animator.SetTrigger("Attack");
+                 enemyAttacking.Attacking();
+             }
+         }
 
-    }
+        }
 }
