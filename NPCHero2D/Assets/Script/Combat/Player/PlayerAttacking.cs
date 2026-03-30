@@ -61,7 +61,8 @@ public class PlayerAttacking : MonoBehaviour
     {
         if (attackTimer <= 0)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofAttack, 2f, layerMask);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofAttack, 1f, layerMask);
+            playerMovement.animator.SetTrigger("Attack");
 
             if (hit)
             {

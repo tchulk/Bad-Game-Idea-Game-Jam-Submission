@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isFacingRight;
     public bool isFacingLeft;
 
+    [SerializeField] public Animator animator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private void Awake()
     {
         playerInput = new PlayerInputAction();
@@ -20,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerInput.Enable();
         playerInput.Player.Move.performed += ctx => Movement();
-        playerInput.Player.Move.canceled += ctx => movementInput = Vector2.zero; // Stop movement when input is released
+        playerInput.Player.Move.canceled += ctx => StopMovement();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,11 +47,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 isFacingRight = true;
                 isFacingLeft = false;
+                spriteRenderer.flipX = false;
             }
             else if (movement.x < 0)
             {
                 isFacingLeft = true;
                 isFacingRight = false;
+                spriteRenderer.flipX = true;
             }
 
             rb.MovePosition(rb.position + movement);
@@ -68,5 +72,12 @@ public class PlayerMovement : MonoBehaviour
     {
         // Use movementInput to move the player character
         movementInput = playerInput.Player.Move.ReadValue<Vector2>();
+        animator.SetBool("IsMoving", true);
+    }
+
+    public void StopMovement()
+    {
+        movementInput = Vector2.zero; // Stop movement when input is released
+        animator.SetBool("IsMoving", false);
     }
 }

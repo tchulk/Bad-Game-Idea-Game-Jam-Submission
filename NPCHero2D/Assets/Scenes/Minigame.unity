@@ -1143,6 +1143,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &846665416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1123998254782755215, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+  m_PrefabInstance: {fileID: 1016129903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &846665418 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4716267424117304788, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+  m_PrefabInstance: {fileID: 1016129903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &846665419
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846665416}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92ee9ae8a43b3d9449b08c9bfaab6498, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &919009728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,6 +1628,42 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4716267424117304788, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 229992989312293679, guid: 822468dacfe619d46a515c7b0ae33a4b, type: 3}
+    - target: {fileID: 4716267424117304788, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716267424117304788, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716267424117304788, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996841787107532852, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996841787107532852, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996841787107532852, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341669554750577265, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 846665419}
+    - target: {fileID: 5341669554750577265, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 846665418}
     - target: {fileID: 6913565807555951709, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 128
@@ -1608,6 +1676,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3663028986812973678, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1444102469}
+    - targetCorrespondingSourceObject: {fileID: 1123998254782755215, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 846665419}
   m_SourcePrefab: {fileID: 100100000, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
 --- !u!1 &1061255213
 GameObject:
@@ -2487,7 +2558,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.39999998, y: 0.39999998, z: 0}
+  m_ChunkCullingBounds: {x: 0.365, y: 0.39, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -6550,7 +6621,7 @@ GameObject:
   m_Layer: 7
   m_Name: Coffee Machine
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
