@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -23,16 +24,7 @@ public class PlayerMovement : MonoBehaviour
         playerInput.Enable();
         playerInput.Player.Move.performed += ctx => Movement();
         playerInput.Player.Move.canceled += ctx => StopMovement();
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerInput.Player.Exit.performed += ctx => Exit();
     }
 
     private void FixedUpdate()
@@ -75,9 +67,19 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsMoving", true);
     }
 
-    public void StopMovement()
+    private void StopMovement()
     {
         movementInput = Vector2.zero; // Stop movement when input is released
         animator.SetBool("IsMoving", false);
+    }
+
+    private void Exit()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+        // This quits the game application when built
+#else
+            Application.Quit();
+#endif
     }
 }

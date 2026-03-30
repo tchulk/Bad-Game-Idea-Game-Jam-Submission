@@ -153,8 +153,7 @@ public class EnemyMovement : MonoBehaviour
             currentDirection = new Vector2(1, 0);
             isFacingRight = true;
             isFacingLeft = false;
-            gameObject.transform.Rotate(new Vector3(0, 180, 0));
-            Model.flipX = true;
+            gameObject.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 180, 0));
             DoNotCheckRight = true;
         }
         if (directionOfPlayer.x < 0f && DoNotCheckRight != true)
@@ -162,8 +161,7 @@ public class EnemyMovement : MonoBehaviour
             currentDirection = new Vector2(-1, 0);
             isFacingLeft = true;
             isFacingRight = false;
-            Model.flipX = false;
-            gameObject.transform.Rotate(new Vector3(0, 0, 0));
+            gameObject.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, 0));
             DoNotCheckLeft = true;
         }
     }
