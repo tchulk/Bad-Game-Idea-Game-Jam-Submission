@@ -35,7 +35,7 @@ public class EnemyAttacking : MonoBehaviour
 
     public void Attacking()
     {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofAttack, 2f, layerMask);
+       RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofAttack, 2f, layerMask);
         Debug.DrawRay(transform.position, directionofAttack * 2f, Color.magenta, 1);
         if (hit.collider != null)
             {
