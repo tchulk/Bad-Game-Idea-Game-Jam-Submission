@@ -22,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            enemyMovement.StopMoving = true;
             Die();
         }
     }
@@ -32,11 +33,12 @@ public class EnemyHealth : MonoBehaviour
         enemyMovement.animator.SetTrigger("Hurt");
         if (enemyMovement.isFacingRight)
         {
-            gameObject.transform.SetPositionAndRotation(new Vector3(transform.position.x - 2f, transform.position.y, transform.position.z), transform.rotation);
+            gameObject.transform.SetPositionAndRotation(new Vector3(transform.position.x - 3f, transform.position.y, transform.position.z), transform.rotation);
         }
         else if (enemyMovement.isFacingLeft)
         {
-            gameObject.transform.SetPositionAndRotation(new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z), transform.rotation);
+            
+            gameObject.transform.SetPositionAndRotation(new Vector3(transform.position.x + 3f, transform.position.y, transform.position.z), transform.rotation);
         }
     }
     private void Die()

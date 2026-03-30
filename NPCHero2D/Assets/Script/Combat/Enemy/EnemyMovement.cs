@@ -27,6 +27,8 @@ public class EnemyMovement : MonoBehaviour
     private float AttackTimer;
     private float AttackCooldown = 4f;
 
+    public bool StopMoving = false;
+
     [SerializeField] private SpriteRenderer Model;
 
     private void Awake()
@@ -96,6 +98,7 @@ public class EnemyMovement : MonoBehaviour
         // Move using Rigidbody2D to respect physics and avoid transform/physics conflicts
         if (rd != null)
         {
+            if (StopMoving) return;
             Vector2 movement = currentDirection * speed * Time.fixedDeltaTime;
             rd.MovePosition(rd.position + movement);
         }
