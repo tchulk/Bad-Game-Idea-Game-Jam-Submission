@@ -12,6 +12,8 @@ public class PlayerAttacking : MonoBehaviour
     private PlayerMovement playerMovement;
     private Vector3 directionofAttack;
 
+    private bool AttackAnimation = false;
+
     private void Awake()
     {
         playerInput = new PlayerInputAction();
@@ -33,6 +35,19 @@ public class PlayerAttacking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (AttackAnimation == true)
+        {
+            AnimatorStateInfo stateInfo = playerMovement.animator.GetCurrentAnimatorStateInfo(0);
+
+            // Check if we are in the correct state and the time is >= 1 (finished)
+            if (stateInfo.IsName("BobAttack") && stateInfo.normalizedTime >= 1.0f)
+            {
+                // Animation is finished
+                playerMovement.animator.SetBool("IsAttack", false);
+                AttackAnimation = false;
+            }
+
+        }
         attackTimer -= Time.deltaTime;
 
         if (playerMovement.isFacingRight)
@@ -45,9 +60,6 @@ public class PlayerAttacking : MonoBehaviour
             directionofAttack = -transform.right;
             return;
         }
-
-        
-
     }
 
     private void OnDisable()
@@ -62,7 +74,9 @@ public class PlayerAttacking : MonoBehaviour
         if (attackTimer <= 0)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofAttack, 1f, layerMask);
-            playerMovement.animator.SetTrigger("Attack");
+            //playerMovement.animator.SetTrigger("Attack");
+            playerMovement.animator.SetBool("IsAttack", true);
+            AttackAnimation = true;
 
             if (hit)
             {
@@ -76,6 +90,7 @@ public class PlayerAttacking : MonoBehaviour
             }
             Debug.DrawRay(transform.position, directionofAttack * 2f, Color.green, 100f);
             attackTimer = attackTimerMax;
+            
         }
     }
        

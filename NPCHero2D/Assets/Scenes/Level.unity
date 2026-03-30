@@ -928,6 +928,7 @@ MonoBehaviour:
   maxHealth: 100
   damageSound: {fileID: 630129634}
   currentHealth: 0
+  healthSlider: {fileID: 1341028009}
 --- !u!82 &630129634
 AudioSource:
   m_ObjectHideFlags: 0

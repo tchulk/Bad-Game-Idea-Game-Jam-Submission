@@ -1,15 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private float maxHealth = 100;
     [SerializeField] private AudioSource damageSound;
-    public int currentHealth;
+    public float currentHealth;
+    private PlayerMovement playerMovement;
+    [SerializeField] private Slider healthSlider;
 
     private void Awake()
     {
         currentHealth = maxHealth;
+        playerMovement = GetComponent<PlayerMovement>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,13 +24,14 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        healthSlider.value = currentHealth / 100;
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         damageSound.Play();
+        playerMovement.animator.SetTrigger("Damage");
         if (currentHealth <= 0)
         {
             Die();

@@ -97,8 +97,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1572525404091414458}
   - component: {fileID: 6945719663069227115}
-  - component: {fileID: 5341669554750577265}
   - component: {fileID: 4188076111689577954}
+  - component: {fileID: 5341669554750577265}
   - component: {fileID: 6913565807555951709}
   - component: {fileID: 3146271267727062234}
   m_Layer: 0
@@ -154,6 +154,24 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4188076111689577954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3663028986812973678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e8df1f4abeaa248b8b2aa2f6296f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attackTimerMax: 1
+  damage: 10
+  HittingSound: {fileID: 0}
 --- !u!114 &5341669554750577265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,18 +185,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
---- !u!114 &4188076111689577954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3663028986812973678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96e8df1f4abeaa248b8b2aa2f6296f77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  isFacingRight: 0
+  isFacingLeft: 0
+  animator: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!70 &6913565807555951709
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
