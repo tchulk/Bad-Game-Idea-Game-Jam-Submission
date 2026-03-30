@@ -22,6 +22,10 @@ public class CoffeeMachine : ObjectInteractionManager
 
     private bool DoOnce = false;
 
+    [SerializeField] private TextMeshProUGUI tutorialText;
+    private float tutorialTimer = 5;
+    private bool tutorialActive = false;
+
 
     public override void Awake()
     {
@@ -29,6 +33,7 @@ public class CoffeeMachine : ObjectInteractionManager
         buttonTimer = buttonTimerMax;
         timerText.gameObject.SetActive(false);
         buttonToClick.gameObject.SetActive(false);
+        tutorialText.gameObject.SetActive(false);
         base.Awake();
     }
 
@@ -48,6 +53,17 @@ public class CoffeeMachine : ObjectInteractionManager
     // Update is called once per frame
     void Update()
     {
+            if (tutorialActive)
+            {
+            tutorialText.gameObject.SetActive(true);
+            tutorialTimer -= Time.deltaTime;
+                if (tutorialTimer <= 0)
+                {
+                    tutorialText.gameObject.SetActive(false);
+                tutorialActive = false;
+                minigameStarted = true;
+            }
+        }
         if (buttonTimer <= 0 && minigameStarted)
         {
             minigameFailed = true;
@@ -127,6 +143,6 @@ public class CoffeeMachine : ObjectInteractionManager
     {
         if (minigameFinished) return;
         Debug.Log("You interact with the Coffee Machine.");
-        minigameStarted = true;
+        tutorialActive = true;
     }
 }
