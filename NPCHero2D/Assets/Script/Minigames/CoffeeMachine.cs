@@ -48,7 +48,7 @@ public class CoffeeMachine : ObjectInteractionManager
     // Update is called once per frame
     void Update()
     {
-        if (buttonTimer <= 0)
+        if (buttonTimer <= 0 && minigameStarted)
         {
             minigameFailed = true;
         }
@@ -74,6 +74,14 @@ public class CoffeeMachine : ObjectInteractionManager
         if (minigameFailed)
         {
             Debug.Log("Minigame Failed");
+            timerText.gameObject.SetActive(false);
+            buttonToClick.gameObject.SetActive(false);
+            minigameStarted = false;
+             hasPLayerDoneButton1 = false;
+             hasPlayerDoneButton2 = false;
+             hasPlayerDoneButton3 = false;
+            minigameFailed = false;
+            buttonTimer = buttonTimerMax;
         }
         if (minigameFinished == true && DoOnce == false)
         {
