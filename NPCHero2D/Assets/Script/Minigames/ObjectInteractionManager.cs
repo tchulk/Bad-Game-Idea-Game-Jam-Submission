@@ -3,6 +3,7 @@ using UnityEngine;
 public class ObjectInteractionManager : MonoBehaviour
 {
     [SerializeField] private GameObject Transition;
+    [SerializeField] private AudioSource audioSource;
 
 
     public virtual void Awake()
@@ -29,6 +30,7 @@ public class ObjectInteractionManager : MonoBehaviour
     {
         if (Transition.GetComponent<Transition>() != null)
         {
+            audioSource.Play();
             Transition.GetComponent<Transition>().MinigameDone++;
         }
     }

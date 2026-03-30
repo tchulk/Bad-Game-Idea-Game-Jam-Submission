@@ -73,7 +73,7 @@ public class PlayerAttacking : MonoBehaviour
     {
         if (attackTimer <= 0)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofAttack, 1f, layerMask);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, directionofAttack, 0.5f, layerMask);
             //playerMovement.animator.SetTrigger("Attack");
             playerMovement.animator.SetBool("IsAttack", true);
             AttackAnimation = true;
@@ -84,7 +84,7 @@ public class PlayerAttacking : MonoBehaviour
                 {
                     Debug.Log("Hit Goblin");
                     HittingSound.Play();
-                    EnemyHealth enemyHealth = hit.collider.transform.parent.GetComponent<EnemyHealth>();
+                    EnemyHealth enemyHealth = hit.collider.transform.GetComponent<EnemyHealth>();
                     enemyHealth.TakeDamage(damage);
                 }
             }

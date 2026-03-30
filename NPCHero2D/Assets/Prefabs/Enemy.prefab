@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5805770075372885310}
   - component: {fileID: 1299015588536069851}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnemyTrigger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
