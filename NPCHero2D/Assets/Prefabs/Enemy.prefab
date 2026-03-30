@@ -197,9 +197,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6104047781479960675}
-  - component: {fileID: 5105986143239864151}
   - component: {fileID: 5536669631117229696}
   - component: {fileID: 5714995561219095255}
+  - component: {fileID: 5105986143239864151}
   - component: {fileID: 167500911614812293}
   - component: {fileID: 2474326048346830769}
   - component: {fileID: 2825216006944785917}
@@ -228,6 +228,37 @@ Transform:
   - {fileID: 5805770075372885310}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5536669631117229696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659505463878097381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393f160de1e3a8b49ae059b0022fd884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  damageSound: {fileID: 2825216006944785917}
+--- !u!114 &5714995561219095255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659505463878097381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db98798dd9afc8409f9e1e49184375a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  HittingSound: {fileID: 6728256529993117756}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &5105986143239864151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,40 +277,7 @@ MonoBehaviour:
   trigger: {fileID: 1299015588536069851}
   AttackRange: 1
   animator: {fileID: 6676049410052289461}
---- !u!114 &5536669631117229696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8659505463878097381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393f160de1e3a8b49ae059b0022fd884, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 50
-  damageSound: {fileID: 2825216006944785917}
-  animator: {fileID: 6676049410052289461}
---- !u!114 &5714995561219095255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8659505463878097381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0db98798dd9afc8409f9e1e49184375a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackTimerMax: 1
-  damage: 10
-  HittingSound: {fileID: 6728256529993117756}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  animator: {fileID: 6676049410052289461}
+  Model: {fileID: 2317447875212521340}
 --- !u!70 &167500911614812293
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

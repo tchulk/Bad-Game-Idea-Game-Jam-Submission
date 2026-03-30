@@ -20,8 +20,14 @@ public class EnemyMovement : MonoBehaviour
     private bool DoNotCheckRight = false;
     private EnemyAttacking enemyAttacking;
 
-    [SerializeField] private float AttackRange = 2;
-    [SerializeField] private Animator animator;
+    [SerializeField] private float AttackRange = 2; 
+    public Animator animator;
+
+
+    private float AttackTimer;
+    private float AttackCooldown = 2f;
+
+    [SerializeField] private SpriteRenderer Model;
 
     private void Awake()
     {
@@ -67,6 +73,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         randomTimer -= Time.deltaTime;
+        AttackTimer -= Time.deltaTime;
 
         if (randomTimer <= 0 && isRoaming)
         {
@@ -147,6 +154,7 @@ public class EnemyMovement : MonoBehaviour
             isFacingRight = true;
             isFacingLeft = false;
             gameObject.transform.Rotate(new Vector3(0, 180, 0));
+            Model.flipX = true;
             DoNotCheckRight = true;
         }
         if (directionOfPlayer.x < 0f && DoNotCheckRight != true)
@@ -154,6 +162,7 @@ public class EnemyMovement : MonoBehaviour
             currentDirection = new Vector2(-1, 0);
             isFacingLeft = true;
             isFacingRight = false;
+            Model.flipX = false;
             gameObject.transform.Rotate(new Vector3(0, 0, 0));
             DoNotCheckLeft = true;
         }
@@ -161,6 +170,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void Attacking()
     {
-        enemyAttacking.Attacking();
+        if (AttackTimer <= 0)
+        {
+            AttackTimer = AttackCooldown;
+            animator.SetTrigger("Attack");
+            enemyAttacking.Attacking();
+        }
+
     }
 }

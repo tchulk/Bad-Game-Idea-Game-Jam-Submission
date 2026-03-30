@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -36,5 +37,6 @@ public class PlayerHealth : MonoBehaviour
     {
         // Handle player death (e.g., play animation, disable controls, etc.)
         Debug.Log("Player has died.");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Reload the current scene
     }
 }
