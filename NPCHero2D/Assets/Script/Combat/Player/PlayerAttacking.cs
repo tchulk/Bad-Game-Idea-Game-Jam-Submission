@@ -94,7 +94,7 @@ public class PlayerAttacking : MonoBehaviour
             playerMovement.animator.SetBool("IsAttack", true);
             AttackAnimation = true;
             isShaking = true;
-            impulseSource.GenerateImpulse();
+            impulseSource.GenerateImpulseWithForce(0.1f);
 
             if (hit)
             {
