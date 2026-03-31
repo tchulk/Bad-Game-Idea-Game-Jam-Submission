@@ -1172,7 +1172,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1287786957}
+  - {fileID: 852628506}
   - {fileID: 1772069633}
   - {fileID: 1388466839}
   - {fileID: 2139600544}
@@ -1341,12 +1341,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1287786957}
+  m_Children:
+  - {fileID: 1287786957}
+  m_Father: {fileID: 822591092}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.9599953, y: 0}
+  m_AnchoredPosition: {x: -51.95999, y: 116.256874}
   m_SizeDelta: {x: 203.91, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &852628507
@@ -5061,13 +5062,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 852628506}
-  m_Father: {fileID: 822591092}
+  m_Children: []
+  m_Father: {fileID: 852628506}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49.999992, y: 116.256874}
+  m_AnchoredPosition: {x: 1.9599953, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1287786958
@@ -5494,7 +5494,7 @@ GameObject:
   - component: {fileID: 1388466841}
   - component: {fileID: 1388466840}
   m_Layer: 5
-  m_Name: Border (1)
+  m_Name: Border (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5754,6 +5754,7 @@ MonoBehaviour:
   AllMinigameToDo: 2
   sword: {fileID: 995431115}
   SwordText: {fileID: 1287786958}
+  transitionImage: {fileID: 852628507}
 --- !u!4 &1506438304
 Transform:
   m_ObjectHideFlags: 0
@@ -5956,6 +5957,11 @@ MonoBehaviour:
   buttonTimerMax: 2
   timerText: {fileID: 258531623}
   buttonToClick: {fileID: 2014206076}
+  Borders:
+  - {fileID: 852628507}
+  - {fileID: 1772069634}
+  - {fileID: 1388466840}
+  - {fileID: 2139600545}
   tutorialText: {fileID: 263341975}
 --- !u!61 &1540387219
 BoxCollider2D:

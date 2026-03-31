@@ -19,6 +19,7 @@ public class CoffeeMachine : ObjectInteractionManager
     private bool hasPlayerDoneButton3;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI buttonToClick;
+    [SerializeField] private Image[] Borders = new Image[4];
 
     private bool DoOnce = false;
 
@@ -34,6 +35,10 @@ public class CoffeeMachine : ObjectInteractionManager
         timerText.gameObject.SetActive(false);
         buttonToClick.gameObject.SetActive(false);
         tutorialText.gameObject.SetActive(false);
+        Borders[0].gameObject.SetActive(false);
+        Borders[1].gameObject.SetActive(false);
+        Borders[2].gameObject.SetActive(false);
+        Borders[3].gameObject.SetActive(false);
         base.Awake();
     }
 
@@ -54,12 +59,14 @@ public class CoffeeMachine : ObjectInteractionManager
     void Update()
     {
             if (tutorialActive)
-            {
+        {
             tutorialText.gameObject.SetActive(true);
+            Borders[2].gameObject.SetActive(true);
             tutorialTimer -= Time.deltaTime;
                 if (tutorialTimer <= 0)
                 {
                     tutorialText.gameObject.SetActive(false);
+                Borders[2].gameObject.SetActive(false);
                 tutorialActive = false;
                 minigameStarted = true;
             }
@@ -74,7 +81,9 @@ public class CoffeeMachine : ObjectInteractionManager
             timerText.gameObject.SetActive(true);
             timerText.text = buttonTimer.ToString("F2");
             buttonToClick.gameObject.SetActive(true);
-                if (hasPLayerDoneButton1 != true)
+            Borders[1].gameObject.SetActive(true);
+            Borders[3].gameObject.SetActive(true);
+            if (hasPLayerDoneButton1 != true)
                 {
                     buttonToClick.text = "Press " + playerInput.Player.TimingButtion1.GetBindingDisplayString(0);
                 }
@@ -92,6 +101,8 @@ public class CoffeeMachine : ObjectInteractionManager
             Debug.Log("Minigame Failed");
             timerText.gameObject.SetActive(false);
             buttonToClick.gameObject.SetActive(false);
+            Borders[1].gameObject.SetActive(false);
+            Borders[3].gameObject.SetActive(false);
             minigameStarted = false;
              hasPLayerDoneButton1 = false;
              hasPlayerDoneButton2 = false;
@@ -104,6 +115,8 @@ public class CoffeeMachine : ObjectInteractionManager
             Debug.Log("Minigame finished");
             timerText.gameObject.SetActive(false);
             buttonToClick.gameObject.SetActive(false);
+            Borders[1].gameObject.SetActive(false);
+            Borders[3].gameObject.SetActive(false);
             DoOnce = true;
             base.Interact();
         }

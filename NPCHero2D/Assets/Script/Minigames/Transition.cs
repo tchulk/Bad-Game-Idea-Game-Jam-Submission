@@ -8,6 +8,7 @@ public class Transition : MonoBehaviour
     [SerializeField] private int AllMinigameToDo = 2;
     [SerializeField] private GameObject sword;
     [SerializeField] private TextMeshProUGUI SwordText;
+    [SerializeField] private Image transitionImage;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class Transition : MonoBehaviour
             Debug.Log("All minigames completed! Spawning Sword...");
             sword.SetActive(true);
             SwordText.gameObject.SetActive(true);
+            transitionImage.gameObject.SetActive(true);
         }
     }
 }
