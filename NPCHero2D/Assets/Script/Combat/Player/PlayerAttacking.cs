@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
+
 
 public class PlayerAttacking : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class PlayerAttacking : MonoBehaviour
     [SerializeField] private float shakeIntensity = 5f;
     [SerializeField] private float shakeDuration = 1f;
     private bool isShaking = false;
+
+    [SerializeField] private CinemachineImpulseSource impulseSource;
 
     private void Awake()
     {
@@ -90,6 +94,7 @@ public class PlayerAttacking : MonoBehaviour
             playerMovement.animator.SetBool("IsAttack", true);
             AttackAnimation = true;
             isShaking = true;
+            impulseSource.GenerateImpulse();
 
             if (hit)
             {
