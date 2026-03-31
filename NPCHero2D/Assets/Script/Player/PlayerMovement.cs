@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         playerInput.Player.Move.performed -= ctx => Movement();
-        playerInput.Player.Move.canceled -= ctx => movementInput = Vector2.zero;
+        playerInput.Player.Move.canceled -= ctx => StopMovement();
         playerInput.Disable();
     }
 
@@ -64,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
     {
         // Use movementInput to move the player character
         movementInput = playerInput.Player.Move.ReadValue<Vector2>();
+        movementInput.Normalize(); // Normalize to prevent faster diagonal movement
+        if (movementInput.y != 0)
+        {
+            movementInput.y = 0; // Prevent vertical movement
+        }
         animator.SetBool("IsMoving", true);
     }
 
