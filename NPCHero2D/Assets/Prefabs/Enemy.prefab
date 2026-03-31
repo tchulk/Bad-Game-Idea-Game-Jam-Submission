@@ -221,7 +221,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 41.57, y: -0.052, z: -0.063417725}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4152239044682503956}
@@ -277,6 +277,7 @@ MonoBehaviour:
   trigger: {fileID: 1299015588536069851}
   AttackRange: 2
   animator: {fileID: 6676049410052289461}
+  StopMoving: 0
   Model: {fileID: 2317447875212521340}
 --- !u!70 &167500911614812293
 CapsuleCollider2D:
