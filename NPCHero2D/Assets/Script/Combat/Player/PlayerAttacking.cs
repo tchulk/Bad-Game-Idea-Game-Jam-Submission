@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAttacking : MonoBehaviour
@@ -14,6 +15,12 @@ public class PlayerAttacking : MonoBehaviour
 
     private bool AttackAnimation = false;
 
+    [SerializeField] private GameObject mainCamera;
+    private Vector3 originalCameraPosition;
+    [SerializeField] private float shakeIntensity = 5f;
+    [SerializeField] private float shakeDuration = 1f;
+    private bool isShaking = false;
+
     private void Awake()
     {
         playerInput = new PlayerInputAction();
@@ -24,12 +31,12 @@ public class PlayerAttacking : MonoBehaviour
     private void OnEnable()
     {
         playerInput.Player.Enable();
-        playerInput.Player.Attack.performed += ctx => Attacking(); 
+        playerInput.Player.Attack.performed += ctx => Attacking();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        originalCameraPosition = mainCamera.transform.position;
     }
 
     // Update is called once per frame
@@ -48,6 +55,10 @@ public class PlayerAttacking : MonoBehaviour
             }
 
         }
+        if (isShaking)
+        {
+            StartCoroutine(CameraShakeRoutine());
+        }
         attackTimer -= Time.deltaTime;
 
         if (playerMovement.isFacingRight)
@@ -64,10 +75,11 @@ public class PlayerAttacking : MonoBehaviour
 
     private void OnDisable()
     {
-        
+
         playerInput.Player.Attack.performed -= ctx => Attacking();
         playerInput.Player.Disable();
     }
+
 
     public void Attacking()
     {
@@ -77,6 +89,7 @@ public class PlayerAttacking : MonoBehaviour
             //playerMovement.animator.SetTrigger("Attack");
             playerMovement.animator.SetBool("IsAttack", true);
             AttackAnimation = true;
+            isShaking = true;
 
             if (hit)
             {
@@ -90,8 +103,16 @@ public class PlayerAttacking : MonoBehaviour
             }
             Debug.DrawRay(transform.position, directionofAttack * 2f, Color.green, 100f);
             attackTimer = attackTimerMax;
-            
+
         }
     }
-       
+
+    IEnumerator CameraShakeRoutine()
+    {
+        mainCamera.transform.position = originalCameraPosition + (Random.insideUnitSphere * shakeIntensity);
+        yield return new WaitForSeconds(shakeDuration);
+        mainCamera.transform.position = originalCameraPosition;
+        isShaking = false;
+    }
+
 }

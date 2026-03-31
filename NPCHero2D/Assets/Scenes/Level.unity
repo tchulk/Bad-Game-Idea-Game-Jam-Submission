@@ -25568,12 +25568,24 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4188076111689577954, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 4188076111689577954, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
       propertyPath: HittingSound
       value: 
       objectReference: {fileID: 630129635}
     - target: {fileID: 4188076111689577954, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: shakeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188076111689577954, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
       propertyPath: attackTimerMax
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188076111689577954, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
+      propertyPath: shakeIntensity
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4188076111689577954, guid: 6960a00437f97454c830d42dd30ffc33, type: 3}
       propertyPath: layerMask.m_Bits
